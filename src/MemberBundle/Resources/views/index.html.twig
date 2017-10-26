@@ -1,0 +1,11 @@
+Member space
+{{ msg.name }}
+
+<p>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('logout') }}">Выйти</a>
+        <br/><br/>
+
+    {% else %}
+        <a href="{{ path('login') }}">Войти </a>
+    {% endif %}</p>
