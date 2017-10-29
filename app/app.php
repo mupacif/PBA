@@ -24,6 +24,10 @@ $app['security.default_encoder'] = function ($app) {
     return $app['security.encoder.bcrypt'];
 };
 
+$app->register(new Silex\Provider\AssetServiceProvider(), array(
+    'assets.version' => 'v1'
+));
+
 
 $app->register(new Silex\Provider\SessionServiceProvider());
 /**
@@ -35,7 +39,7 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
             'pattern' => '^/',
             'anonymous' => true,
             'logout' => true,
-            'form' => array('login_path' => '/User/login', 'check_path' => '/login_check'),
+            'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
             'users' => function () use ($app) {
                 return new UsersBundle\Repository\UserRepository($app['dbs']['sqlite']);
             },
@@ -50,4 +54,5 @@ $app['security.role_hierarchy'] = array(
 
 $app['security.access_rules'] = array(
     array('^/member/.*$', 'ROLE_USER'),
+    array('^/member$', 'ROLE_USER'),
 );

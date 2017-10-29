@@ -1,0 +1,108 @@
+	{% extends 'views/alpha/base.html.twig' %}
+	{% block title %}	
+	Sign in
+	{% endblock %}  
+
+
+		{% block body %}
+			<body class="landing">
+					<!-- Header -->
+				<header id="header" class="alt">
+					<nav id="nav">
+						<ul>
+							<li><a href="{{ path('index') }}">Home</a></li>
+							<li><a href="{{ path('signup') }}" class="button">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>Echanges de colis</h2>
+					<p>Echanges de colis entre les gens.</p>
+					<ul class="actions">
+						<li><a href="{{ path('signup') }}" class="button special">Sign Up</a></li>
+						<li><a href="{{ path('signin') }}" class="button">Sign In</a></li>
+					</ul>
+				</section>
+	<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special">
+						<header class="major">
+							<h2>Sign Up</h2>
+						
+						</header>
+						
+
+						  <form  action="{{ path('post_signup') }}" autocomplete="on" method="POST">
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input type="text" id="username" name="username" required="required" value="" placeholder="Username" />
+									</div>
+								</div>
+
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input id="email" name="email" required="required" type="email" value="" placeholder="email" />
+									</div>
+								</div>
+
+
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input id="password" name="password" required="required" type="password"  value="" placeholder="Password" />
+									</div>
+								</div>
+
+
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input type="password"  id="password_confirm" name="password_confirm" required="required"  value="" placeholder="Password confirm" />
+									</div>
+								</div>
+								<br /><br /><br />
+								<!-- informations -->
+								<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+										<input type="text" name="name" id="name" value="" placeholder="Name" />
+									</div>
+									<div class="6u 12u(mobilep)">
+										<input id="surname" name="surname" type="text" value="" placeholder="Surname" />
+									</div>
+								</div>
+
+
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input id="phone" name="phone" value=""   required="required" type="password"  value="" placeholder="phone" />
+									</div>
+								</div>
+
+
+								<div class="row uniform 50%">
+									<div class="12u">
+										<textarea name="message" id="message" placeholder="Adresse" rows="6"></textarea>
+									</div>
+								</div>
+
+
+
+								<div class="row uniform">
+									<div class="12u">
+										<ul class="actions align-center">
+											<li><input type="submit" value="Sign up" /></li>
+										</ul>
+									</div>
+								</div>
+						 </form>
+					</section>
+
+				
+
+
+
+				</section>
+
+
+		{% endblock %}  

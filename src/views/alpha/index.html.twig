@@ -1,0 +1,45 @@
+	{% extends 'views/alpha/base.html.twig' %}
+	{% block title %}	
+	Index
+	{% endblock %}  
+
+
+		{% block body %}
+		<body class="landing">
+			<!-- Header -->
+				<header id="header" class="alt">
+					<nav id="nav">
+						<ul>
+							<li><a href="{{ path('index') }}">Home</a></li>
+							<li><a href="{{ path('signup') }}" class="button">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>Echanges de colis</h2>
+					<p>Echanges de colis entre les gens.</p>
+					<ul class="actions">
+						<li><a href="{{ path('signup') }}" class="button special">Sign Up</a></li>
+						<li><a href="{{ path('signin') }}" class="button">Sign In</a></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special">
+						<header class="major">
+							<h2>Echange de colis
+							<br />
+							for doing stuff with your phone</h2>
+							<p>Index page.</p>
+						</header>
+						<span class="image featured"><img src="{{ asset('/web/alpha/images/pic01.jpg') }}"  alt="" /></span>
+					</section>
+				</section>
+
+
+		{% endblock %}  
+

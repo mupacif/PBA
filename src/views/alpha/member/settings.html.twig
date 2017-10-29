@@ -1,0 +1,74 @@
+{% extends 'views/alpha/base.html.twig' %}
+{% block title %}	
+Settings
+{% endblock %}  
+
+
+{% block body %}
+
+<!-- Header -->
+				<header id="header">
+					<h1><a href="{{ path('index') }}">AphroBee</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="{{ path('member') }}">Home</a></li>
+							<li><a href="{{ path('member_settings') }}">Settings</a></li>
+							<li><a href="{{ path('logout') }}" class="button">Disconnect</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container">
+								<div class="row uniform 50%">
+									<label class="control-label" for="usernam">Username</label>
+									<div class="12u">
+										<input type="text" id="username" name="username" required="required" value="{{ user.username }}" placeholder="Username" />
+									</div>
+								</div>
+
+								<div class="row uniform 50%">
+									<label class="control-label" for="email">Email</label>
+									<div class="12u">
+										<input id="email" name="email" required="required" type="email" value="{{ user.email }}" placeholder="email" />
+									</div>
+								</div>
+
+
+								<div class="row uniform 50%">
+									<label class="control-label" for="password">Password</label>
+									<div class="12u">
+										<input id="password" name="password" required="required" type="password"  value="{{ user.password }}" placeholder="Password" />
+									</div>
+								</div>
+
+
+				
+								<br /><br /><br />
+								<!-- informations -->
+								<div class="row uniform 50%">
+									<label class="control-label" for="name">Name</label>
+									<div class="12u">
+										<input type="text" name="name" id="name" value="{{ user.name }}" placeholder="Name" />
+									</div>
+								</div>
+
+								<div class="row uniform 50%">
+									<label class="control-label" for="surname">Surname</label>
+									<div class="12u">
+										<input id="surname" name="surname" type="text" value="{{ user.surname }}" placeholder="Surname" />
+									</div>
+								</div>
+
+
+								<div class="row uniform 50%">
+									<label class="control-label" for="phone">Phone</label>
+									<div class="12u">
+										<input id="phone" name="phone" type="text" value="{{ user.phone }}" placeholder="Surname" />
+										
+									</div>
+								</div>
+
+
+				</section>
+{% endblock %}  

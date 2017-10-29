@@ -87,7 +87,7 @@ $app->post('/'.$bundleName."/signup",function(Request $request) use ($app){
                 ->setSubject('Your subscribe')
                 ->setFrom(array('noreply@pacee.net'))
                 ->setTo(array($email))
-                ->setBody("helle $name , you can connect with your username:$username");
+                ->setBody("hello $name , you can connect with your username:$username <br> password: $password");
             $app['mailer']->send($message);
 
 

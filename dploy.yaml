@@ -1,0 +1,9 @@
+live:
+    scheme: ftp
+    host: ftp.pacee.net
+    port: 21
+    user: pacee
+    pass: rrmxVdxN
+    check: true
+    path:
+        remote: /www/Code/APB

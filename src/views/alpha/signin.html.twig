@@ -1,0 +1,68 @@
+	{% extends 'views/alpha/base.html.twig' %}
+	{% block title %}	
+	Sign in
+	{% endblock %}  
+
+
+		{% block body %}
+			<body class="landing">
+					<!-- Header -->
+				<header id="header" class="alt">
+					<nav id="nav">
+						<ul>
+							<li><a href="{{ path('index') }}">Home</a></li>
+							<li><a href="{{ path('signup') }}" class="button">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+
+				<section id="banner">
+					<h2>Echanges de colis</h2>
+					<p>Echanges de colis entre les gens.</p>
+					<ul class="actions">
+						<li><a href="{{ path('signup') }}" class="button special">Sign Up</a></li>
+						<li><a href="{{ path('signin') }}" class="button">Sign In</a></li>
+					</ul>
+				</section>
+<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special">
+						<header class="major">
+							<h2>Sign In</h2>
+						</header>
+						 <form  action="{{ path('login_check') }}" autocomplete="on" method="POST">
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input id="username"  name="_username" value="{{ last_username }}"   required="required" type="text"  value="" placeholder="login" />
+									</div>
+								</div>
+
+								<div class="row uniform 50%">
+									<div class="12u">
+										<input id="password" name="_password" value=""   required="required" type="password"  value="" placeholder="password" />
+									</div>
+								</div>
+
+
+
+
+								<div class="row uniform">
+									<div class="12u">
+										<ul class="actions align-center">
+											<li><input type="submit" value="Sign In" /></li>
+										</ul>
+									</div>
+								</div>
+						 </form>
+			{% if error %}
+                <div class="alert alert-danger">
+                    <strong>Login failed!</strong> 
+                </div>
+            {% endif %}
+					</section>
+
+
+		{% endblock %}  
