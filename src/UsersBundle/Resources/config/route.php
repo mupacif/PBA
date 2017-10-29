@@ -84,10 +84,10 @@ $app->post('/'.$bundleName."/signup",function(Request $request) use ($app){
                 )
             );
             $message = \Swift_Message::newInstance()
-                ->setSubject('Your subscribe')
+                ->setSubject('Thank you for signing up')
                 ->setFrom(array('noreply@pacee.net'))
                 ->setTo(array($email))
-                ->setBody("hello $name , you can connect with your username:$username <br> password: $password");
+                ->setBody("hello $name , you can connect with your username:$username <br/> password: $password");
             $app['mailer']->send($message);
 
 

@@ -23,12 +23,9 @@ $app->get("/",function() use ($app){
 
 $app->get("/",function() use ($app,$skin){
 
-    $token = $app['security.token_storage']->getToken();
-    if (null !== $token && ($user =  $token->getUser()) && !empty($user->getSurname())) {
-        
-
+if ($app['security.authorization_checker']->isGranted('ROLE_USER'))
         return $app->redirect($app["url_generator"]->generate("member"));
-    }
+else
     return $app['twig']->render('views/'.$skin.'/index.html.twig');
 })->bind('index');
 
