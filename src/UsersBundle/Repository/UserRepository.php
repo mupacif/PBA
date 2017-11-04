@@ -51,6 +51,20 @@ class UserRepository implements UserProviderInterface
             throw new UsernameNotFoundException(sprintf('User "%s" not found.', $username));
     }
 
+
+/***
+*
+*Return list of users
+*/
+    public function findAllUsers()
+    {
+        $sql = "select * from ".UserRepository::$TABLEUSER;
+        $rows = $this->db->fetchAll($sql);
+        return $rows;
+    }
+
+
+
     /**
      * {@inheritDoc}
      */

@@ -48,6 +48,11 @@ $app->register(new Silex\Provider\SecurityServiceProvider(), array(
     ),
 ));
 
+$app['dao.users'] = function() use ($app)
+{
+    return new UsersBundle\Repository\UserRepository($app['dbs']['sqlite']);
+};
+
 $app['security.role_hierarchy'] = array(
     'ROLE_ADMIN' => array('ROLE_USER'),
 );

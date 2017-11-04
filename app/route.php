@@ -62,6 +62,14 @@ $app->get("/member/settings",function() use ($app,$skin){
 })->bind('member_settings');
 
 
+$app->get("/api/users",function() use ($app,$skin){
+
+    $users = $app['dao.users']-> findAllUsers();
+    return $app['twig']->render('views/'.$skin.'/member/list.html.twig',array('users'=>$users));
+/*return $app->json($users);*/
+});
+
+
 //include Bundles
 require __DIR__."/../src/UsersBundle/Resources/config/route.php";
 require __DIR__."/../src/MemberBundle/Resources/config/route.php";

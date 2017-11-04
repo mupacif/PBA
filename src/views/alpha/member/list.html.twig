@@ -1,0 +1,31 @@
+{% extends 'views/alpha/base.html.twig' %}
+{% block title %}	
+Settings
+{% endblock %}  
+
+
+{% block body %}
+
+<!-- Header -->
+				<header id="header">
+					<h1><a href="{{ path('index') }}">AphroBee</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="{{ path('member') }}">Home</a></li>
+							<li><a href="{{ path('member_settings') }}">Settings</a></li>
+							<li><a href="{{ path('logout') }}" class="button">Disconnect</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<section id="main" class="container">
+								
+				{% for user in users %}
+        <li>{{ user["username"] }}</li>
+    {% else %}
+        <li><em>no user found</em></li>
+    {% endfor %}
+
+				</section>
+{% endblock %}  
