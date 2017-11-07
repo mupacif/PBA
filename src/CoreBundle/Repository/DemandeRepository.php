@@ -12,12 +12,13 @@ class DemandeRepository
         $this->db = $db;
     }
 
-    public static $TABLENAME = "description";
+    public static $TABLENAME = "Demande";
     public static $DESCRIPTION = "description";
     public static $ID = "_ID";
     public static $POIDS = "poids";
     public static $DATE = "date";
     public static $USERID = "idUser";
+    public static $ACCEPTED = "accepted";
 
     public function find($id) {
         $sql = "select * from ".DemandeRepository::$TABLENAME." where ".DemandeRepository::$ID."=?";
