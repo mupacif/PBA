@@ -73,3 +73,4 @@ $app->get("/member/users",function() use ($app,$skin){
 //include Bundles
 require __DIR__."/../src/UsersBundle/Resources/config/route.php";
 require __DIR__."/../src/MemberBundle/Resources/config/route.php";
+require __DIR__."/../src/CoreBundle/Resources/config/route.php";

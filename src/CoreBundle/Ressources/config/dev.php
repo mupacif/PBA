@@ -1,0 +1,2 @@
+<?php
+$bundleName="CoreBundle";

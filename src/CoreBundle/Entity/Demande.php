@@ -1,16 +1,48 @@
 <?php
 namespace CoreBundle\Entity;
-/**
- * Created by PhpStorm.
- * User: mupac_000
- * Date: 06-11-17
- * Time: 15:11
- */
+
+
 class Demande
 {
     private $description;
+    private $id;
     private $accepted;
     private $poids;
     private $date;
-    private $user;
+    private $userId;
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+    public function setAccepted($accepted)
+    {
+        $this->accepted=$accepted;
+
+    }
+    public function setPoids($poids)
+    {
+        $this->poids=$poids;
+        return $this;
+    }
+
+    public function setDate($date)
+    {
+        $this->date=$date;
+        return $this;
+    }
+
+    public function setUserId($id)
+    {
+        $this->userId=$id;
+        return $this;
+    }
+    public function setId($id)
+    {
+        $this->id=$id;
+        return $this;
+    }
+
+
 }

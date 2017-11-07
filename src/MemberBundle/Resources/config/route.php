@@ -7,7 +7,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use \UsersBundle\Repository\UserRepository;
 require __DIR__."/dev.php";
 
-$bundleName="member";
 
 $app->get('/'.$bundleName."/",function() use ($app){
     $token = $app['security.token_storage']->getToken();

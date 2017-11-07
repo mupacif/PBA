@@ -26,7 +26,17 @@ class DemandeRepository
         if ($row)
             return $this->buildDomainObject($row);
         else
-            throw new \Exception("No user matching id " . $id);
+            throw new \Exception("Pas de demande pour id " . $id);
+    }
+
+    public function findDemandesOf($userId) {
+        $sql = "select * from ".DemandeRepository::$TABLENAME." where ".DemandeRepository::$USERID."=?";
+        $row = $this->db->fetchAssoc($sql, array($userId));
+
+        if ($row)
+            return $this->buildDomainObject($row);
+        else
+            throw new \Exception("Pas de demandes pour l'utilisateur " . $userId);
     }
 
     protected function buildDomainObject(array $row) {
@@ -36,8 +46,6 @@ class DemandeRepository
         $demande->setPoids($row[DemandeRepository::$POIDS]);
         $demande->setDate($row[DemandeRepository::$DATE]);
         $demande->setUserId($row[DemandeRepository::$USERID]);
-
-
         return $demande;
     }
 }
