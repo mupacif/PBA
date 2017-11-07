@@ -31,10 +31,16 @@ class DemandeRepository
 
     public function findDemandesOf($userId) {
         $sql = "select * from ".DemandeRepository::$TABLENAME." where ".DemandeRepository::$USERID."=?";
-        $row = $this->db->fetchAssoc($sql, array($userId));
+        $rows = $this->db->fetchAll($sql, array($userId));
+        $demandes = array();
+        if ($rows)
+        {
+            foreach ($rows as $row)
+             $demandes[] = $this->buildDomainObject($row);
 
-        if ($row)
-            return $this->buildDomainObject($row);
+
+            return $demandes;
+        }
         else
             throw new \Exception("Pas de demandes pour l'utilisateur " . $userId);
     }
