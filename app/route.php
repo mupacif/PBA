@@ -62,12 +62,12 @@ $app->get("/member/settings",function() use ($app,$skin){
 })->bind('member_settings');
 
 
-$app->get("/api/users",function() use ($app,$skin){
+$app->get("/member/users",function() use ($app,$skin){
 
     $users = $app['dao.users']-> findAllUsers();
     return $app['twig']->render('views/'.$skin.'/member/list.html.twig',array('users'=>$users));
 /*return $app->json($users);*/
-});
+})->bind('admin_lists');
 
 
 //include Bundles
