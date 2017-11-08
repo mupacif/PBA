@@ -1,7 +1,6 @@
 <?php 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\DBAL\Schema\Table;
+
 
 $app->before(function (Request $request) {
     if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
@@ -51,6 +50,7 @@ $app->get("/member",function() use ($app,$skin){
      return $app['twig']->render('views/'.$skin.'/member.html.twig');
 })->bind('member');;
 
+$app->get("/member/demande","CoreBundle\Controller\DemandesController::addDemandePageController")->bind("member_demande");
 
 
 $app->get("/member/settings",function() use ($app,$skin){

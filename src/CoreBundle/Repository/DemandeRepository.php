@@ -12,7 +12,7 @@ class DemandeRepository
         $this->db = $db;
     }
 
-    public static $TABLENAME = "Demande";
+    public static $TABLENAME = "Demandes";
     public static $DESCRIPTION = "description";
     public static $ID = "_ID";
     public static $POIDS = "poids";

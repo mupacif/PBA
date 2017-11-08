@@ -1,0 +1,101 @@
+{% extends 'views/alpha/member/base.html.twig' %}
+{% block title %}
+    Demande
+{% endblock %}
+
+
+
+    {% block main %}
+<section id="main" class="container 75%">
+    <header>
+        <h2>Votre demande</h2>
+        <p>Veillez décrire votre demande.
+            <br/>
+
+
+        </p>
+
+    </header>
+    {% raw %}
+    <div class="box">
+        <form method="post" action="#"  v-on:submit.prevent="sendDemande">
+            <div class="row uniform 50%">
+
+                <div class="12u">
+
+                    <textarea name="description" id="description" placeholder="Description de la demande" rows="6" v-model="description" required/>
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="row uniform 50%">
+                <div class="12u">
+                    <input type="text" name="poids" id="poids" value="" placeholder="Poids" v-model="poids" required/>
+                </div>
+            </div>
+
+
+            <div class="row uniform">
+                <div class="12u">
+                    <ul class="actions align-center">
+                        <li><input type="submit" value="Enregistrer la demande" /></li>
+
+                    </ul>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <center>{{message}}</center>
+        </form>
+{% endraw %}
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+<script src="//unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+
+    var vm = new Vue(
+        {
+            el:'#main',
+            data:{
+                message:"",
+                poids:"",
+                description:""
+            },
+            methods:
+                {
+
+                    sendDemande:function()
+                    {
+
+                        this.message="sent";
+
+                        if(this.isCorrect(this.description) && this.isCorrect(this.poids))
+                        {
+                            var data= {description:this.description,poids:this.poids};
+                            axios.post("{{ path('core_add_demande') }}",data).then(function (response)
+                            {
+                                console.log(response.data)
+                                if(response.data)
+                                    vm._data.message = "saved";
+                                else
+                                    vm._data.message = "error";
+                            });
+                        }else{
+                            this.message="données invalides";
+                        }
+
+                    },
+                    isCorrect:function(str)
+                    {
+                        return str && !(/^\s*$/.test(str));
+                    }
+
+                }
+        })
+            </script>
+{% endblock %}
+
+
+

@@ -10,9 +10,9 @@
         {% block stylesheets %}{% endblock %}
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<!--[if lte IE 8]><script src="{{ asset('assets/js/ie/html5shiv.js') }}"></script><![endif]-->
 		<link rel="stylesheet" href="{{ asset('/web/alpha/assets/css/main.css') }}" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('assets/css/ie8.css')}}" /><![endif]-->
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -32,8 +32,8 @@
 		</div>
 
 				<!-- Scripts -->
-			<script src="{{ asset('/web/alpha/assets/js/jquery.min.js') }}""></script>
-			<script src="{{ asset('/web/alpha/assets/js/jquery.dropotron.min.js') }}""></script>
+			<script src="{{ asset('/web/alpha/assets/js/jquery.min.js') }}"></script>
+			<script src="{{ asset('/web/alpha/assets/js/jquery.dropotron.min.js') }}"></script>
 			<script src="{{ asset('/web/alpha/assets/js/jquery.scrollgress.min.js') }}"></script>
 			<script src="{{ asset('/web/alpha/assets/js/skel.min.') }}"></script>
 			<script src="{{ asset('/web/alpha/assets/js/util.js') }}"></script>
